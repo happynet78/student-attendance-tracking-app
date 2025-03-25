@@ -27,7 +27,7 @@ class StudentList extends Component
     public function render(): View
     {
         return view('livewire.teacher.student.student-list', [
-             'students' => Student::orderBy('created_at', 'DESC')->paginate(5)
+             'students' => Student::orderBy('created_at', 'DESC')->paginate(10)
         ]);
     }
 }

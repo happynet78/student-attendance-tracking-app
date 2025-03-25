@@ -17,7 +17,7 @@
                     <flux:navlist.item icon="home" :href="route( auth()->user()->role == 'teacher' ? 'teacher.dashboard' : 'admin.dashboard')" :current="request()->routeIs(auth()->user()->role == 'teacher' ? 'teacher.dashboard' : 'admin.dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                 </flux:navlist.group>
                 <flux:navlist.item icon="academic-cap" :href="route('student.index')" :current="request()->routeIs('student.index')" wire:navigate>{{ __('Student Management') }}</flux:navlist.item>
-{{--                <flux:navlist.item icon="academic-cap" :href="route('grade.index')" :current="request()->routeIs('grade.index')" wire:navigate>{{ __('Grade Management') }}</flux:navlist.item>--}}
+                <flux:navlist.item icon="academic-cap" :href="route('grade.index')" :current="request()->routeIs('grade.index')" wire:navigate>{{ __('Grade Management') }}</flux:navlist.item>
 {{--                <flux:navlist.item icon="academic-cap" :href="route('attendance.index')" :current="request()->routeIs('attendance.index')" wire:navigate>{{ __('Attendance Management') }}</flux:navlist.item>--}}
             </flux:navlist>
 

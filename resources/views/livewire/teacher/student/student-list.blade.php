@@ -13,7 +13,7 @@
                                     Students
                                 </h2>
                                 <p class="text-sm text-gray-600 dark:text-neutral-400">
-                                    Students overview by country.
+                                    Students overview.
                                 </p>
                             </div>
 
@@ -98,45 +98,48 @@
                         <!-- End Table -->
 
                         <!-- Footer -->
-                        <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-neutral-700">
-                            <div>
+                        <div class="w-full block mt-auto items-center justify-center px-6 py-4 grid gap-3 md:block md:justify-between md:items-center border-t border-gray-200 dark:border-neutral-700">
+                            <!-- <div>
                                 <p class="text-sm text-gray-600 dark:text-neutral-400">
                                     <span class="font-semibold text-gray-800 dark:text-neutral-200">{{ $students->count() }}</span> results
                                 </p>
                             </div>
 
-                            <div>
-                                @if($students->hasPages())
-                                    <nav role="navigation" aria-label="Pagination Navigation" class="flex justify-between">
-                                        <div class="inline-flex gap-x-2">
-                                            {{-- Previous Page Link --}}
-                                            @if($students->onFirstPage())
-                                                <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md">
-                                                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-                                                    {!! __('pagination.previous') !!}
-                                                </span>
-                                            @else
-                                                <button type="button" wire:click="previousPage" wire:loading.attr="disabled" rel="prev" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
-                                                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-                                                    {!! __('pagination.previous') !!}
-                                                </button>
-                                            @endif
+                            <div> -->
+                                <nav class="isolate inline-flex -space-x-px rounded-md shadow-xs" aria-label="Pagination">
+                                    {{ $students->links() }}
+                                </nav>
+{{--                                @if($students->hasPages())--}}
+{{--                                    <nav role="navigation" aria-label="Pagination Navigation" class="flex justify-between">--}}
+{{--                                        <div class="inline-flex gap-x-2">--}}
+{{--                                            --}}{{-- Previous Page Link --}}
+{{--                                            @if($students->onFirstPage())--}}
+{{--                                                <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md">--}}
+{{--                                                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>--}}
+{{--                                                    {!! __('pagination.previous') !!}--}}
+{{--                                                </span>--}}
+{{--                                            @else--}}
+{{--                                                <button type="button" wire:click="previousPage" wire:loading.attr="disabled" rel="prev" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">--}}
+{{--                                                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>--}}
+{{--                                                    {!! __('pagination.previous') !!}--}}
+{{--                                                </button>--}}
+{{--                                            @endif--}}
 
-                                            {{-- Next Page Link --}}
-                                            @if($students->hasMorePages())
-                                                <button type="button" wire:click="nextPage" wire:loading.attr="disabled" rel="next" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
-                                                    {!! __('pagination.next') !!}
-                                                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-                                                </button>
-                                            @else
-                                                <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md">
-                                                    {!! __('pagination.next') !!}
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </nav>
-                                    @endif
-                            </div>
+{{--                                            --}}{{-- Next Page Link --}}
+{{--                                            @if($students->hasMorePages())--}}
+{{--                                                <button type="button" wire:click="nextPage" wire:loading.attr="disabled" rel="next" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">--}}
+{{--                                                    {!! __('pagination.next') !!}--}}
+{{--                                                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>--}}
+{{--                                                </button>--}}
+{{--                                            @else--}}
+{{--                                                <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md">--}}
+{{--                                                    {!! __('pagination.next') !!}--}}
+{{--                                                </span>--}}
+{{--                                            @endif--}}
+{{--                                        </div>--}}
+{{--                                    </nav>--}}
+{{--                                @endif--}}
+{{--                            </div>--}}
                         </div>
                         <!-- End Footer -->
                     </div>

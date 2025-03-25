@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'accepted' => 'The :attribute field must be accepted.',
+    'accepted' => ':속성 필드를 수락해야 합니다.',
     'accepted_if' => 'The :attribute field must be accepted when :other is :value.',
     'active_url' => 'The :attribute field must be a valid URL.',
     'after' => 'The :attribute field must be a date after :date.',

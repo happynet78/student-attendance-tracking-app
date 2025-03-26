@@ -16,14 +16,16 @@
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route( auth()->user()->role == 'teacher' ? 'teacher.dashboard' : 'admin.dashboard')" :current="request()->routeIs(auth()->user()->role == 'teacher' ? 'teacher.dashboard' : 'admin.dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                 </flux:navlist.group>
-                <flux:navlist.item icon="academic-cap" :href="route('student.index')" :current="request()->routeIs('student.index')" wire:navigate>{{ __('Student Management') }}</flux:navlist.item>
-                <flux:navlist.item icon="academic-cap" :href="route('grade.index')" :current="request()->routeIs('grade.index')" wire:navigate>{{ __('Grade Management') }}</flux:navlist.item>
-{{--                <flux:navlist.item icon="academic-cap" :href="route('attendance.index')" :current="request()->routeIs('attendance.index')" wire:navigate>{{ __('Attendance Management') }}</flux:navlist.item>--}}
+                @if(auth()->user()->role == 'admin')
+                    <flux:navlist.item icon="academic-cap" :href="route('student.index')" :current="request()->routeIs('student.index')" wire:navigate>{{ __('Student Management') }}</flux:navlist.item>
+                    <flux:navlist.item icon="bars-3-bottom-left" :href="route('grade.index')" :current="request()->routeIs('grade.index')" wire:navigate>{{ __('Grade Management') }}</flux:navlist.item>
+                @endif
+                <flux:navlist.item icon="calendar-days" :href="route('attendance.page')" :current="request()->routeIs('attendance.page')" wire:navigate>{{ __('Attendance Management') }}</flux:navlist.item>
             </flux:navlist>
 
             <flux:spacer />
 
-            <flux:navlist variant="outline">
+            <!-- <flux:navlist variant="outline">
                 <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
                 {{ __('Repository') }}
                 </flux:navlist.item>
@@ -31,7 +33,7 @@
                 <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits" target="_blank">
                 {{ __('Documentation') }}
                 </flux:navlist.item>
-            </flux:navlist>
+            </flux:navlist> -->
 
             <!-- Desktop User Menu -->
             <flux:dropdown position="bottom" align="start">

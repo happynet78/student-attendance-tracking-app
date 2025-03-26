@@ -6,3 +6,6 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+Schedule::command('attendance:send-report daily')->everyTenSeconds();
+Schedule::command('attendance:send-report weekly')->weeklyOn(7, '18:00');
